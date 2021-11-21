@@ -1,0 +1,7 @@
+<div class="container-fluid">
+  <header (valueChange)="search($event)" style="display: flex;margin-top: 20px; flex-direction: column;"></header>
+  <div class="content col-md-12">
+    <left-side-bar [reset]="resetFilter" (filterChange)="filter($event)" class="col-md-3"></left-side-bar>
+    <product-list [productList]="products" class="col-md-9"></product-list>
+  </div> 
+</div>

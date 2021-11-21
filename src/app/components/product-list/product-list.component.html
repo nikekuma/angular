@@ -1,0 +1,25 @@
+<div class="product-list col-md-12">
+    <ul>
+        <li *ngFor="let product of productList" class="product">
+            <span class="col-md-4">
+                <img width="200px" [src]="product.thumbnail" alt="Italian Trulli">
+            </span>
+            <span class="col-md-8">
+                <h2>{{product.model}}</h2>
+                <div>
+                    <h6>Brand</h6>
+                    <span> {{product.brand}}</span>
+                </div>
+                <div>
+                    <h6>Price</h6>
+                    <span> {{product.price}}</span>
+                </div>
+                <hr>
+                <span style="display: flex;">
+                    <h6>RAM:-</h6><span>{{product.features.ram}} </span>&nbsp; 
+                    <h6>Memory:-</h6><span>{{product.features.internalMemory}}</span>
+                </span>
+            </span>
+        </li>
+    </ul>  
+</div>

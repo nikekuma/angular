@@ -1,0 +1,13 @@
+<div class="input-group mb-3">
+    <input type="search" [(ngModel)]="searchText" class="form-control" (keyup)="showAutoComplete($event, searchText)">
+    <button class="btn btn-outline-secondary" type="button" id="button" (click)="search()">Search</button>
+</div>
+
+<div class="auto-complete" *ngIf="showSuggestion">
+    <form [formGroup]="autoCompleteForm" novalidate>
+        <select class="form-select" size="4" formControlName="model"
+            (change)="selectModel(autoCompleteForm.controls.model.value)">
+            <option *ngFor="let model of autoCompleteSuggestion.models" [value]="model">{{model}}</option>
+        </select>
+    </form>
+</div>

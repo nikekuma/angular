@@ -1,0 +1,57 @@
+<div class="left-side-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-auto">
+                <div>
+                    <h2>Filters</h2>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h5>Brands</h5>
+                        <form [formGroup]="filterForm" novalidate>
+                            <ul class="list-group" >
+                                <li *ngFor="let brand of filterOption.brands" class="list-group-item" (change)="productFilter(brand, filterForm.controls.brand.value)">
+                                    <input [value]="brand" class="form-check-input me-1" type="checkbox" id="brand" formControlName="brand">
+                                    {{brand}}
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <h5>Price</h5>
+                        <form [formGroup]="filterForm" novalidate>
+                            <select class="form-select" size="3" formControlName="price" (change)="priceFilter(filterForm.controls.price.value)">
+                                <option *ngFor="let price of filterOption.prices" [value]="price">₹{{price}}</option>
+                            </select>
+                        </form>
+                    </div>
+
+                    <div style="margin-bottom: 20px;">
+                        <h5>RAM</h5>
+                        <form [formGroup]="filterForm" novalidate>
+                            <ul class="list-group" >
+                                <li *ngFor="let ram of filterOption.rams" class="list-group-item" (change)="ramFilter(ram, filterForm.controls.ram.value)">
+                                    <input [value]="ram" class="form-check-input me-1" type="checkbox" id="ram" formControlName="ram">
+                                    {{ram}}
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h5>Internal Memory</h5>
+                        <form [formGroup]="filterForm" novalidate>
+                            <ul class="list-group" >
+                                <li *ngFor="let memory of filterOption.internalMemories" class="list-group-item" (change)="memoryFilter(memory, filterForm.controls.memory.value)">
+                                    <input [value]="memory" class="form-check-input me-1" type="checkbox" id="memory" formControlName="memory">
+                                    {{memory}}
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
