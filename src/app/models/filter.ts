@@ -7,7 +7,7 @@ export interface FilterModel {
 
 export interface FilterParamModel {
     'brands': Set<String>;
-    'prices': Set<String>;
+    'prices': Array<String>;
     'rams': Set<String>;
     'internalMemories': Set<String>;
 }

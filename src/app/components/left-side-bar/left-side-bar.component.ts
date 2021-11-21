@@ -16,10 +16,9 @@ export class LeftSideBarComponent implements OnInit, OnChanges {
     'rams': ['4GB', '8GB', '16GB'],
     'internalMemories': ['8GB', '16GB', '32GB']
   };
-  // var map: { [key: string]: any } = {};
   public filterParam: any = {
     'brands': new Set(),
-    'prices': new Set(),
+    'prices': new Array(),
     'rams': new Set(),
     'internalMemories': new Set()
   };
@@ -46,12 +45,13 @@ export class LeftSideBarComponent implements OnInit, OnChanges {
 
   resetFilter(): void {
     this.filterForm.reset();
-    // for (let [key, value] of Object.entries(this.filterParam)) {
-    //   value = new Set();
-    // }
     for (let key in this.filterParam) {
       this.filterParam[key] = new Set();
     }
+    // this.filterParam.brands = new Set();
+    // this.filterParam.prices = new Array();
+    // this.filterParam.rams = new Set();
+    // this.filterParam.internalMemories = new Set();
     this.filter();
   }
 
@@ -65,10 +65,11 @@ export class LeftSideBarComponent implements OnInit, OnChanges {
   }
 
   priceFilter(val: any): void {
+    this.filterParam.prices = [];
     if (val) {
-      this.filterParam.prices.add(val);
-    } else {
-      this.filterParam.prices.delete(val);
+      val = val.split("-");
+      this.filterParam.prices.push(val[0]);
+      this.filterParam.prices.push(val[1]);
     }
     this.filter();
   }

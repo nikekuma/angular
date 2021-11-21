@@ -48,6 +48,13 @@ export class AppComponent implements OnInit {
       });
     }
 
+    // filter against price
+    if (filterParam.prices.length) {
+      this.products = this.products.filter((asset: any) => {
+        return (filterParam.prices[0] <= asset.price) && (asset.price <= filterParam.prices[1]);
+      });
+    }
+
     // filter against ram
     if (filterParam.rams.size) {
       this.products = this.products.filter((asset: any) => {
